@@ -17,27 +17,25 @@ for(let i = 0; i < 8; i++){
 
 }
 
-peices.push({image: "assets/images/rook_b.png",x: 0,y: 7,});
-peices.push({image: "assets/images/rook_b.png",x: 7,y: 7,});
-peices.push({image: "assets/images/rook_w.png",x: 0,y: 0,});
-peices.push({image: "assets/images/rook_w.png",x: 7,y: 0,});
+for(let p = 0; p < 2; p++){
 
-peices.push({image: "assets/images/knight_b.png",x: 1,y: 7,});
-peices.push({image: "assets/images/knight_b.png",x: 6,y: 7,});
-peices.push({image: "assets/images/knight_w.png",x: 1,y: 0,});
-peices.push({image: "assets/images/knight_w.png",x: 6,y: 0,});
+    const type = (p === 0) ? "b" : "w";
 
-peices.push({image: "assets/images/bishop_b.png",x: 2,y: 7,});
-peices.push({image: "assets/images/bishop_b.png",x: 5,y: 7,});
-peices.push({image: "assets/images/bishop_w.png",x: 2,y: 0,});
-peices.push({image: "assets/images/bishop_w.png",x: 5,y: 0,});
+    const y = (p === 0) ? 7 : 0;
 
-peices.push({image: "assets/images/king_b.png",x: 3,y: 7,});
-peices.push({image: "assets/images/king_w.png",x: 3,y: 0,});
+    peices.push({image: `assets/images/rook_${type}.png`,x: 0,y: y,});
+    peices.push({image: `assets/images/rook_${type}.png`,x: 7,y: y,});
 
-peices.push({image: "assets/images/queen_b.png",x: 4,y: 7,});
-peices.push({image: "assets/images/queen_w.png",x: 4,y: 0,});
+    peices.push({image: `assets/images/knight_${type}.png`,x: 1,y: y,});
+    peices.push({image: `assets/images/knight_${type}.png`,x: 6,y: y,});
 
+    peices.push({image: `assets/images/bishop_${type}.png`,x: 2,y: y,});
+    peices.push({image: `assets/images/bishop_${type}.png`,x: 5,y: y,});
+
+    peices.push({image: `assets/images/queen_${type}.png`,x: 3,y: y,});
+    peices.push({image: `assets/images/king_${type}.png`,x: 4,y: y,});
+
+}
 
 export default function Chessboard(){
 
