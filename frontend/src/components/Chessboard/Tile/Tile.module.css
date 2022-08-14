@@ -1,0 +1,21 @@
+.positions{
+
+    width: 100px;
+    height: 100px;
+    
+
+}
+.tileBlack{
+
+    background-color: #779556;
+    width: 100px;
+    height: 100px;
+
+}
+.tileWhite{
+
+    background-color: #ebecd0;
+    width: 100px;
+    height: 100px;
+
+}
