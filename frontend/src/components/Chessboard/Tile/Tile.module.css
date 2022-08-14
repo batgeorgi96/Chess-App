@@ -1,11 +1,10 @@
-.positions{
+.tileBlack{
 
+    display: grid;
+    place-content: center;
     width: 100px;
     height: 100px;
-    
 
-}
-.tileBlack{
 
     background-color: #779556;
     width: 100px;
@@ -14,8 +13,18 @@
 }
 .tileWhite{
 
+    display: grid;
+    place-content: center;
+    width: 100px;
+    height: 100px;
+
     background-color: #ebecd0;
     width: 100px;
     height: 100px;
+
+}
+.chessImg{
+
+    width: 80px;
 
 }
