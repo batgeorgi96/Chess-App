@@ -24,7 +24,6 @@ function grab(e){
 
     }
     
-
 }
 
 function move(e){
@@ -43,7 +42,6 @@ function move(e){
 }
 
 function drop(e){
-
 
     if(grabedPiece){
 
