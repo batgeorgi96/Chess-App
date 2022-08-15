@@ -5,6 +5,54 @@ import peices from './pieces/pieces.js';
 const verticalAxis = ['1','2','3','4','5','6','7','8'];
 const horizontalAxis = ['a','b','c','d','e','f','g','h'];
 
+let grabedPiece = null;
+
+function grab(e){
+
+    const tileEl = e.target
+
+    if(tileEl.classList.contains("Tile_chessPiece__jEfn6")){
+
+        const x = e.clientX - 50;
+        const y = e.clientY - 50;
+
+        tileEl.style.position = "absolute";
+        tileEl.style.left = `${x}px`;
+        tileEl.style.top = `${y}px`;
+
+        grabedPiece = tileEl;
+
+    }
+    
+
+}
+
+function move(e){
+
+    if(grabedPiece){
+
+        const x = e.clientX - 50;
+        const y = e.clientY - 50;
+
+        grabedPiece.style.position = "absolute";
+        grabedPiece.style.left = `${x}px`;
+        grabedPiece.style.top = `${y}px`;
+
+    }
+
+}
+
+function drop(e){
+
+
+    if(grabedPiece){
+
+        grabedPiece = null;
+
+    }
+
+}
+
 export default function Chessboard(){
 
     let board = [];
@@ -33,7 +81,7 @@ export default function Chessboard(){
 
     return(
     
-        <div id={styles.chessBoard}>
+        <div onMouseDown={grab} onMouseMove={move} onMouseUp={drop}  id={styles.chessBoard}>
 
             {board}
 
