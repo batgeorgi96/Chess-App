@@ -1,4 +1,4 @@
-function renderPeices(){
+function peices(){
 
     const peices = [];
 
@@ -37,4 +37,4 @@ function renderPeices(){
 
 }
 
-export default renderPeices;
+export default peices;
