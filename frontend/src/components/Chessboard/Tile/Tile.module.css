@@ -5,10 +5,8 @@
     width: 100px;
     height: 100px;
 
-
     background-color: #779556;
-    width: 100px;
-    height: 100px;
+
 
 }
 .tileWhite{
@@ -19,8 +17,6 @@
     height: 100px;
 
     background-color: #ebecd0;
-    width: 100px;
-    height: 100px;
 
 }
 .chessImg{
@@ -39,12 +35,10 @@
 }
 .chessPiece:hover{
 
-
     cursor:grab;
 
 }
 .chessPiece:active{
-
 
     cursor: grabbing;
 
