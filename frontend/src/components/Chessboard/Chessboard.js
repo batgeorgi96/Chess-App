@@ -25,7 +25,7 @@ export default function Chessboard(){
 
             })
 
-            board.push(<Tile tileCounter={tileCounter} images={image} />);
+            board.push(<Tile key={`${i},${j}`} tileCounter={tileCounter} images={image} />);
             
         }
 
