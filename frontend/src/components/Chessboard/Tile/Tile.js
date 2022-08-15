@@ -6,7 +6,7 @@ export default function tile({tileCounter, images}){
 
         return (
             <div className={styles.tileBlack}>
-                <img className={styles.chessImg} src={images} alt="" />
+                {images && <div style={{backgroundImage: `url(${images})`}} className={styles.chessPiece}></div>}
             </div>
         );
 
@@ -15,7 +15,7 @@ export default function tile({tileCounter, images}){
 
         return (
             <div className={styles.tileWhite}>
-                <img className={styles.chessImg} src={images} alt="" />
+               {images && <div style={{backgroundImage: `url(${images})`}} className={styles.chessPiece}></div>}
             </div>
         );
 

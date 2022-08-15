@@ -28,3 +28,24 @@
     width: 80px;
 
 }
+.chessPiece{
+
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80px;
+
+}
+.chessPiece:hover{
+
+
+    cursor:grab;
+
+}
+.chessPiece:active{
+
+
+    cursor: grabbing;
+
+}
