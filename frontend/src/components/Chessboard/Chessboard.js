@@ -1,6 +1,6 @@
 import styles from './Chessboard.module.css';
 import Tile from './Tile';
-import peices from './pieces/pieces.js';
+import peices from './pieces/piecesLoader.js';
 import {useRef} from 'react';
 
 
