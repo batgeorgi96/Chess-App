@@ -12,6 +12,8 @@ export default function Chessboard(){
     
     const [pieces, setPieces] = useState(initialBoardState);
     const [activePiece,setActivePiece] = useState(null);
+
+    //gridX and gridY are the position of the currently grabed chess peice
     const [gridX,setGridX] = useState(0);
     const [gridY,setGridY] = useState(0);
 
@@ -24,12 +26,9 @@ export default function Chessboard(){
         const chessboard = chessBoardRef.current;
     
         if(tileEl.classList.contains("Tile_chessPiece__jEfn6") && chessboard){
-
-            const gridX = Math.floor((e.clientX - chessboard.offsetLeft) / 100);
-            const gridY = Math.abs(Math.ceil((e.clientY - chessboard.offsetTop - 800) / 100));
     
-            setGridX(gridX);
-            setGridY(gridY);
+            setGridX(Math.floor((e.clientX - chessboard.offsetLeft) / 100));
+            setGridY(Math.ceil((e.clientY - chessboard.offsetTop - 800) / 100));
 
             const x = e.clientX - 50;
             const y = e.clientY - 50;
@@ -40,7 +39,6 @@ export default function Chessboard(){
     
             setActivePiece(tileEl)
 
-    
         }
         
     }
