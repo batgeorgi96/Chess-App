@@ -29,7 +29,7 @@ export default function Chessboard(){
         if(tileEl.classList.contains("Tile_chessPiece__jEfn6") && chessboard){
     
             setGridX(Math.floor((e.clientX - chessboard.offsetLeft) / 100));
-            setGridY(Math.ceil((e.clientY - chessboard.offsetTop - 800) / 100));
+            setGridY(Math.abs(Math.ceil((e.clientY - chessboard.offsetTop - 800) / 100)));
 
             const x = e.clientX - 50;
             const y = e.clientY - 50;
