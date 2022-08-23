@@ -11,17 +11,26 @@ const horizontalAxis = ['a','b','c','d','e','f','g','h'];
 export default function Chessboard(){
     
     const [pieces, setPieces] = useState(initialBoardState);
+    const [activePiece,setActivePiece] = useState(null);
+    const [gridX,setGridX] = useState(0);
+    const [gridY,setGridY] = useState(0);
 
     let board = [];
-    let grabedPiece = null;
     const chessBoardRef = useRef(null);
 
     function grab(e){
     
         const tileEl = e.target
+        const chessboard = chessBoardRef.current;
     
-        if(tileEl.classList.contains("Tile_chessPiece__jEfn6")){
+        if(tileEl.classList.contains("Tile_chessPiece__jEfn6") && chessboard){
+
+            const gridX = Math.floor((e.clientX - chessboard.offsetLeft) / 100);
+            const gridY = Math.abs(Math.ceil((e.clientY - chessboard.offsetTop - 800) / 100));
     
+            setGridX(gridX);
+            setGridY(gridY);
+
             const x = e.clientX - 50;
             const y = e.clientY - 50;
     
@@ -29,7 +38,8 @@ export default function Chessboard(){
             tileEl.style.left = `${x}px`;
             tileEl.style.top = `${y}px`;
     
-            grabedPiece = tileEl;
+            setActivePiece(tileEl)
+
     
         }
         
@@ -39,7 +49,7 @@ export default function Chessboard(){
     
         const chessboard = chessBoardRef.current;
 
-        if(grabedPiece && chessboard){
+        if(activePiece && chessboard){
     
             const minX = chessboard.offsetLeft - 30;
             const minY = chessboard.offsetTop - 25;
@@ -50,15 +60,15 @@ export default function Chessboard(){
             const x = e.clientX - 50;
             const y = e.clientY - 50;
     
-            grabedPiece.style.position = "absolute";
-            grabedPiece.style.left = `${x}px`;
-            grabedPiece.style.top = `${y}px`;
+            activePiece.style.position = "absolute";
+            activePiece.style.left = `${x}px`;
+            activePiece.style.top = `${y}px`;
 
-            if(x < minX) grabedPiece.style.left = `${minX}px`
-            else if(x > maxX) grabedPiece.style.left = `${maxX}px`
+            if(x < minX) activePiece.style.left = `${minX}px`
+            else if(x > maxX) activePiece.style.left = `${maxX}px`
             
-            if(y < minY) grabedPiece.style.top = `${minY}px`
-            else if(y > maxY) grabedPiece.style.top = `${maxY}px`
+            if(y < minY) activePiece.style.top = `${minY}px`
+            else if(y > maxY) activePiece.style.top = `${maxY}px`
             
         }
     
@@ -67,19 +77,20 @@ export default function Chessboard(){
     function drop(e){
         
         const chessboard = chessBoardRef.current;
-        const x = (e.clientX - chessboard.offsetLeft) / 100;
-        const y = (e.clientY - chessboard.offsetTop) / 100;
+        
+        if(activePiece && chessboard){
 
-        if(grabedPiece){
+            const x = Math.floor((e.clientX - chessboard.offsetLeft) / 100);
+            const y = Math.abs(Math.ceil((e.clientY - chessboard.offsetTop - 800) / 100));
             
             setPieces(p => {
                 
                 return p.map(p => {
                         
-                    if(p.x === 0 && p.y === 0){
+                    if(p.x === gridX && p.y === gridY){
 
-                        p.x = 0;
-                        p.y = 5;
+                        p.x = x;
+                        p.y = y;
 
                     }
 
@@ -87,9 +98,9 @@ export default function Chessboard(){
 
                     });
 
-                })
+                });
 
-            grabedPiece = null;
+            setActivePiece(null)
     
         }
     
