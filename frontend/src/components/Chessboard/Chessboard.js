@@ -64,7 +64,7 @@ export default function Chessboard(){
                 grabedPiece.style.top = `${minY}px`
             } 
             else if(y > maxY){
-                if(y > maxY) grabedPiece.style.top = `${maxY}px`
+                grabedPiece.style.top = `${maxY}px`
             }
 
         }
