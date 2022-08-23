@@ -53,19 +53,12 @@ export default function Chessboard(){
 
             console.log(chessboard.clientHeight)
 
-            if(x < minX){
-                grabedPiece.style.left = `${minX}px`
-            }
-            else if(x > maxX){
-                grabedPiece.style.left = `${maxX}px`
-            }
-
-            if(y < minY){   
-                grabedPiece.style.top = `${minY}px`
-            } 
-            else if(y > maxY){
-                grabedPiece.style.top = `${maxY}px`
-            }
+            if(x < minX) grabedPiece.style.left = `${minX}px`
+            else if(x > maxX) grabedPiece.style.left = `${maxX}px`
+            
+            if(y < minY) grabedPiece.style.top = `${minY}px`
+            else if(y > maxY) grabedPiece.style.top = `${maxY}px`
+            
 
         }
     
