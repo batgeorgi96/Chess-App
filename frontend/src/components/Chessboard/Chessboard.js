@@ -1,14 +1,17 @@
 import styles from './Chessboard.module.css';
 import Tile from './Tile';
-import peices from './pieces/piecesLoader.js';
-import {useRef} from 'react';
+import initialBoardState from './pieces/piecesLoader.js';
+import {useRef, useState} from 'react';
 
 
 const verticalAxis = ['1','2','3','4','5','6','7','8'];
 const horizontalAxis = ['a','b','c','d','e','f','g','h'];
 
+
 export default function Chessboard(){
     
+    const [pieces, setPieces] = useState(initialBoardState);
+
     let board = [];
     let grabedPiece = null;
     const chessBoardRef = useRef(null);
@@ -51,23 +54,41 @@ export default function Chessboard(){
             grabedPiece.style.left = `${x}px`;
             grabedPiece.style.top = `${y}px`;
 
-            console.log(chessboard.clientHeight)
-
             if(x < minX) grabedPiece.style.left = `${minX}px`
             else if(x > maxX) grabedPiece.style.left = `${maxX}px`
             
             if(y < minY) grabedPiece.style.top = `${minY}px`
             else if(y > maxY) grabedPiece.style.top = `${maxY}px`
             
-
         }
     
     }
     
     function drop(e){
-    
+        
+        const chessboard = chessBoardRef.current;
+        const x = (e.clientX - chessboard.offsetLeft) / 100;
+        const y = (e.clientY - chessboard.offsetTop) / 100;
+
         if(grabedPiece){
-    
+            
+            setPieces(p => {
+                
+                return p.map(p => {
+                        
+                    if(p.x === 0 && p.y === 0){
+
+                        p.x = 0;
+                        p.y = 5;
+
+                    }
+
+                        return p;
+
+                    });
+
+                })
+
             grabedPiece = null;
     
         }
@@ -75,14 +96,12 @@ export default function Chessboard(){
     }
 
     for(let j = verticalAxis.length - 1; j >= 0; j--){
-
         for(let i = 0; i < horizontalAxis.length; i++){
 
             const tileCounter = j + i;
-
             let image = undefined;
 
-            peices().forEach(p =>{
+            pieces.forEach(p =>{
 
                 if(p.x === i && p.y === j){
                     image = p.image;

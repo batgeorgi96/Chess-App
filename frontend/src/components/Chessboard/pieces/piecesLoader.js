@@ -1,4 +1,4 @@
-function peices(){
+function initialBoardState(){
 
     const peices = [];
 
@@ -37,4 +37,4 @@ function peices(){
 
 }
 
-export default peices;
+export default initialBoardState;
