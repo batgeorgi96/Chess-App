@@ -15,8 +15,8 @@ export default function Chessboard(){
 
     //gridX and gridY are the position of the currently grabed chess peice
     //by default that position is 0 0, meaing the down left corner of the chess board(where the rook should be)
-    const [gridX,setGridX] = useState(0);
-    const [gridY,setGridY] = useState(0);
+    const [gridX,setGridX] = useState(null);
+    const [gridY,setGridY] = useState(null);
 
     let board = [];
     const chessBoardRef = useRef(null);
