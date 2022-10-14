@@ -126,12 +126,7 @@ export default function Chessboard(){
 
     return(
     
-        <div 
-        ref={chessBoardRef} 
-        onMouseDown={grab} 
-        onMouseMove={move} 
-        onMouseUp={drop}  
-        id={styles.chessBoard}>
+        <div ref={chessBoardRef} onMouseDown={grab} onMouseMove={move} onMouseUp={drop}  id={styles.chessBoard}>
 
             {board}
 
