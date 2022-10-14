@@ -14,7 +14,7 @@ export default function Chessboard(){
     const [activePiece,setActivePiece] = useState(null);
 
     //gridX and gridY are the position of the currently grabed chess peice
-    //by default that position is 0 0, meaing the down left corner of the chess board(where the rook should be)
+    //originally the default position was 0 but I changed it to null, so far there have been no issues
     const [gridX,setGridX] = useState(null);
     const [gridY,setGridY] = useState(null);
 
